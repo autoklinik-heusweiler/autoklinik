@@ -806,3 +806,9 @@ a {
     padding: 4rem 1.5rem;
   }
 }
+
+@media (max-width: 600px) {
+  .hero-section {
+    background-position: center 30%;
+  }
+}
