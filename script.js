@@ -60,3 +60,44 @@ document.addEventListener('click', function(event) {
 document.querySelector('.nav-content').addEventListener('click', function(event) {
     event.stopPropagation();
 });
+
+// === Service Card Highlight on Scroll ===
+function highlightServiceCardsOnScroll() {
+  const cards = document.querySelectorAll('.service-card');
+  const observer = new window.IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.5 // Card muss zu 50% sichtbar sein
+  });
+  cards.forEach(card => observer.observe(card));
+}
+
+// === Why Us, Reviews & Contact Highlight on Scroll ===
+function highlightOnScroll(selector) {
+  const elements = document.querySelectorAll(selector);
+  const observer = new window.IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+  elements.forEach(el => observer.observe(el));
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  highlightServiceCardsOnScroll();
+  highlightOnScroll('.why-us-item');
+  highlightOnScroll('.review-card');
+  highlightOnScroll('.contact-item');
+});
