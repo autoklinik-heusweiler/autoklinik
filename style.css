@@ -247,6 +247,22 @@ a {
   transform: translateY(-3px);
 }
 
+@keyframes heroButtonPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hero-section .hero-button {
+  animation: heroButtonPop 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+}
+
 /* Services Section */
 .services-section {
   padding: 8rem 2rem;
